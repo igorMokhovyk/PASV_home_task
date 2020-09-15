@@ -6,10 +6,6 @@ function Buttons(props) {
     const clickBut = props.click
 
 
-
-
-
-
     return (
         <div>
             <hr/>

@@ -45,7 +45,7 @@ function App() {
     const counterMinusNumber = (index) => {
         const newArr2 = counter.map((el, i) => {
             if (index === i) {
-                return el - i;
+                return el - 1;
             }
             return el;
         })
