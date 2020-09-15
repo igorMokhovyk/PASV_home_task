@@ -19,11 +19,34 @@ function App() {
         setCounter(newArr)
     }
 
+    const counterMinus = (index) => {
+        const newArr2 = counter.map((el, i) => {
+            if(index === i){
+                return el - 1;
+            }
+
+            return el
+        })
+
+        setCounter(newArr2)
+    }
+
+    const counterReset = (index) => {
+        const newArr3 = counter.map((el, i) => {
+            if(index === i){
+                return 0;
+            }
+        })
+
+        setCounter(newArr3)
+    }
+
   return (
     <div className="App">
       <Buttons/>
       <hr/>
-        {counter.map((el, index) => <ButtonsWithNumbersInArray counterPlus={counterPlus} index={index}
+        {counter.map((el, index) => <ButtonsWithNumbersInArray counterReset={counterReset} counterPlus={counterPlus}
+                                                               counterMinus={counterMinus}  index={index}
                                                                el = {el} key={Math.random()}/>
         )}
     </div>

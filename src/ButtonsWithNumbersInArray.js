@@ -8,12 +8,21 @@ function ButtonsWithNumbersInArray(props) {
         props.counterPlus(props.index);
     }
 
+    const buttonMinusHandler = () => {
+        props.counterMinus(props.index);
+    }
+
+    const buttonReset = () => {
+        props.counterReset(props.count);
+    }
+
 
     return(
         <div>
-            <button onClick={buttonPlusHandler}>Minus</button>
+            <button className='btn btn-dark' onClick={buttonMinusHandler}>Minus</button>
             {counter}
-            <button onClick={buttonPlusHandler}>Plus</button>
+            <button className='btn btn-dark' onClick={buttonPlusHandler}>Plus</button>
+            <button onClick={buttonReset}>Reset</button>
         </div>
     );
 }
