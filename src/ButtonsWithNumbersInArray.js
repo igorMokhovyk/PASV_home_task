@@ -2,26 +2,35 @@ import React from "react";
 
 
 function ButtonsWithNumbersInArray(props) {
-    const counterBut = props.el
 
-    const plusBut = () => {
-        props.counterPlusNumber(props.index)
+
+    const counterNumber = props.el;
+
+    const words = props.word
+
+    const buttonPlusHandler = () => {
+        props.buttonPlus(props.index)
     }
 
-    const minusBut = () => {
-        props.counterMinusNumber(props.index)
+    const buttonMinusHandler = () => {
+        props.buttonMinus(props.index)
     }
 
-    const resetBut = () => {
-        props.counterresetButton(props.index)
+    const buttonResetHandler = () => {
+        props.buttonReset(props.index)
     }
+
+
 
     return (
         <div>
-            {counterBut}
-            <button className='btn btn-dark' onClick={plusBut}>+</button>
-            <button className='btn btn-dark' onClick={minusBut}>-</button>
-            <button className='btn btn-danger' onClick={resetBut}>Reset</button>
+            {words}
+            <button className='btn btn-light  text-dark' onClick={buttonPlusHandler}>+</button>
+            {counterNumber}
+
+            <button className='btn btn-light text-dark shadow-lg' onClick={buttonMinusHandler}>-</button>
+            <button className='btn btn-outline-danger shadow shadow-lg text-dark' onClick={buttonResetHandler}>Res</button>
+
         </div>
     );
 }

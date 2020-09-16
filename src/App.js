@@ -6,7 +6,6 @@ import ButtonsWithNumbersInArray from "./ButtonsWithNumbersInArray";
 
 function App() {
 
-    const [counter, setCounter] = useState([0, 0, 0, 0, 0]);
 
     const [click, setClick] = useState(0);
 
@@ -32,45 +31,63 @@ function App() {
         setClick(0)
     }
 
-    const counterPlusNumber = (index) => {
+    const [counter, setCounter] = useState([0, 0, 0, 0, 0]);
+
+    const [word, setWord] = useState('');
+
+
+    const buttonPlus = (index) => {
         const newArr = counter.map((el, i) => {
             if (index === i) {
                 return el + 1;
             }
             return el;
+
         })
-        setCounter(newArr)
+        setCounter(newArr);
+        setWord(word + 'You used "+"')
     }
 
-    const counterMinusNumber = (index) => {
+
+    const buttonMinus = (index) => {
         const newArr2 = counter.map((el, i) => {
             if (index === i) {
                 return el - 1;
             }
             return el;
         })
-        setCounter(newArr2)
+        setCounter(newArr2);
+        setWord(word + 'You used "-"')
     }
 
-
-    const counterreserButton = (index) => {
+    const buttonReset = (index) => {
         const newArr3 = counter.map((el, i) => {
             if (index === i) {
-                return el - el;
+                return 0;
             }
             return el;
         })
-        setCounter(newArr3)
+        setCounter(newArr3);
+        setWord('')
     }
 
+
     return (
+
+
         <div className="App">
+
             <Buttons click={click} plus1={plus1} plus2={plus2} plus3={plus3} minus1={minus1} minus2={minus2}
                      minus3={minus3} reset={reset}/>
-            {counter.map((el, index) => <ButtonsWithNumbersInArray counterresetButton={counterreserButton}
-                                                                   counterMinusNumber={counterMinusNumber} index={index}
-                                                                   counterPlusNumber={counterPlusNumber} el={el}
+            <hr/>
+            <br/>
+
+            {counter.map((el, index) => <ButtonsWithNumbersInArray word={word} buttonReset={buttonReset}
+                                                                   buttonMinus={buttonMinus} index={index}
+                                                                   buttonPlus={buttonPlus} el={el}
                                                                    key={Math.random()}/>)}
+
+
         </div>
     );
 }
